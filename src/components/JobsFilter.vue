@@ -6,6 +6,7 @@
       id="region"
       class="filter__item"
       v-model="selectedRegion"
+      @change="setRegionFilter(selectedRegion)"
     >
       <option value="">Выберите регион</option>
       <option v-for="region in regionNames" :key="region" :value="region">
@@ -13,7 +14,13 @@
       </option>
     </select>
 
-    <select name="city" id="city" class="filter__item" v-model="selectedCity">
+    <select
+      name="city"
+      id="city"
+      class="filter__item"
+      v-model="selectedCity"
+      @change="setCityFilter(selectedCity)"
+    >
       <option value="">Выберите город</option>
       <option v-for="city in cityNames" :key="city" :value="city">
         {{ city }}
@@ -25,6 +32,7 @@
       id="organisationNames"
       class="filter__item"
       v-model="selectedOrganisation"
+      @change="setOrganisationFilter(selectedOrganisation)"
     >
       <option value="">Выберите организацию</option>
       <option
@@ -87,4 +95,16 @@ const organisationNames = computed(() => {
 const selectedRegion = ref("");
 const selectedCity = ref("");
 const selectedOrganisation = ref("");
+
+const setRegionFilter = (selectedRegion) => {
+  debugger;
+  jobsStore.setRegionFilter(selectedRegion);
+};
+const setCityFilter = (selectedCity) => {
+  debugger;
+  jobsStore.setCityFilter(selectedCity);
+};
+const setOrganisationFilter = (selectedOrganisation) => {
+  jobsStore.setOrganisationFilter(selectedOrganisation);
+};
 </script>
