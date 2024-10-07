@@ -1,13 +1,8 @@
-<!-- Jobs.vue -->
 <template>
   <div>
-    <p>Найдено: {{ jobsStore.filteredJobs.length }} вакансии</p>
+    <h2>Найдено: {{ jobsStore.filteredJobs.length }} вакансии</h2>
     <div class="jobs">
-      <Job
-        v-for="job in jobsStore.filteredJobs"
-        :key="job.vacancy_id"
-        :job="job"
-      />
+      <Job v-for="(job, idx) in jobsStore.filteredJobs" :key="idx" :job="job" />
     </div>
   </div>
 </template>

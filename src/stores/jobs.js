@@ -25,15 +25,19 @@ export const useJobsStore = defineStore("jobs", {
     },
     setRegionFilter(selectedRegion) {
       this.selectedRegion = selectedRegion;
-      this.filterJobs();
+      // this.filterJobs();
     },
     setCityFilter(selectedCity) {
-      this.selectedCity = selectedCity;
-      this.filterJobs();
+      if (selectedCity === "all") {
+        this.selectedCity = "";
+      } else this.selectedCity = selectedCity;
+      // this.filterJobs();
     },
     setOrganisationFilter(selectedOrganisation) {
-      this.selectedOrganisation = selectedOrganisation;
-      this.filterJobs();
+      if (selectedOrganisation === "all") {
+        this.selectedOrganisation = "";
+      } else this.selectedOrganisation = selectedOrganisation;
+      // this.filterJobs();
     },
   },
   getters: {
