@@ -24,20 +24,19 @@ export const useJobsStore = defineStore("jobs", {
       }
     },
     setRegionFilter(selectedRegion) {
-      this.selectedRegion = selectedRegion;
-      // this.filterJobs();
+      if (selectedRegion === "all") {
+        this.selectedRegion = "";
+      } else this.selectedRegion = selectedRegion;
     },
     setCityFilter(selectedCity) {
       if (selectedCity === "all") {
         this.selectedCity = "";
       } else this.selectedCity = selectedCity;
-      // this.filterJobs();
     },
     setOrganisationFilter(selectedOrganisation) {
       if (selectedOrganisation === "all") {
         this.selectedOrganisation = "";
       } else this.selectedOrganisation = selectedOrganisation;
-      // this.filterJobs();
     },
   },
   getters: {
@@ -55,7 +54,7 @@ export const useJobsStore = defineStore("jobs", {
             (job.clientname &&
               job.clientname
                 .toLowerCase()
-                .includes(state.selectedOrganisation.toLowerCase())))
+                .includes(state.selectedOrganisation?.toLowerCase())))
         );
       });
     },

@@ -28,10 +28,9 @@ import JobsFilter from "../components/JobsFilter.vue";
   justify-content: space-between;
 }
 .main__filter {
-  width: 20%;
-  min-width: 20%;
-  max-width: 20%;
-  margin-right: 40px;
+  width: 26%;
+  min-width: 26%;
+  max-width: 26%;
 }
 .main__jobs {
   width: 70%;
